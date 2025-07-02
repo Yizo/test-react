@@ -1,7 +1,7 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 
 export function useStampContent() {
-	const [stampContent, setStampContent] = useState(null);
+	const [stampContent] = useState(null);
 
 	function createStampContent() {
 		createContext(stampContent);

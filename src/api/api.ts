@@ -3,6 +3,17 @@ import { useRequest, useMessage } from "@/hooks";
 import type { UseRequestReturn } from "@/hooks";
 import { useUserStore, useCommonStore } from "@/stores";
 
+// 扩展 Window 接口
+declare global {
+	interface Window {
+		$wujie?: {
+			bus?: {
+				$emit: (event: string, data?: any) => void;
+			};
+		};
+	}
+}
+
 export interface UseApiConfig {
 	// 其他配置项可以根据需要添加
 	whiteList?: string[];
@@ -54,8 +65,8 @@ export function useApi() {
 				const message = data?.message || `接口异常:${res.config.url}`;
 				if ([10010004, 173001].includes(+data.code)) {
 					userStore.logout();
-					if (window.$wujie) {
-						window.$wujie?.bus.$emit("sub-timeout", data.message || "登录超时");
+					if (window.$wujie?.bus) {
+						window.$wujie.bus.$emit("sub-timeout", data.message || "登录超时");
 					}
 				}
 				modal.error({

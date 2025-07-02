@@ -1,6 +1,8 @@
 import React from "react";
 import { Card, Row, Col, Statistic, Progress, Timeline } from "antd";
 import { UserOutlined, TeamOutlined, MenuOutlined, SecurityScanOutlined } from "@ant-design/icons";
+import { mockDashboardStats, mockSystemStatus, mockActivities } from "./mock";
+import type { ActivityRecord } from "./mock";
 
 const Dashboard: React.FC = () => {
 	return (
@@ -13,7 +15,7 @@ const Dashboard: React.FC = () => {
 					<Card>
 						<Statistic
 							title="用户总数"
-							value={112}
+							value={mockDashboardStats.userCount}
 							prefix={<UserOutlined />}
 							valueStyle={{ color: "#3f8600" }}
 						/>
@@ -23,7 +25,7 @@ const Dashboard: React.FC = () => {
 					<Card>
 						<Statistic
 							title="角色总数"
-							value={8}
+							value={mockDashboardStats.roleCount}
 							prefix={<TeamOutlined />}
 							valueStyle={{ color: "#cf1322" }}
 						/>
@@ -33,7 +35,7 @@ const Dashboard: React.FC = () => {
 					<Card>
 						<Statistic
 							title="菜单总数"
-							value={26}
+							value={mockDashboardStats.menuCount}
 							prefix={<MenuOutlined />}
 							valueStyle={{ color: "#1890ff" }}
 						/>
@@ -43,7 +45,7 @@ const Dashboard: React.FC = () => {
 					<Card>
 						<Statistic
 							title="权限总数"
-							value={45}
+							value={mockDashboardStats.permissionCount}
 							prefix={<SecurityScanOutlined />}
 							valueStyle={{ color: "#722ed1" }}
 						/>
@@ -57,15 +59,15 @@ const Dashboard: React.FC = () => {
 					<Card title="系统状态" bordered={false}>
 						<div style={{ marginBottom: 16 }}>
 							<div style={{ marginBottom: 8 }}>CPU 使用率</div>
-							<Progress percent={30} status="active" />
+							<Progress percent={mockSystemStatus.cpu} status="active" />
 						</div>
 						<div style={{ marginBottom: 16 }}>
 							<div style={{ marginBottom: 8 }}>内存使用率</div>
-							<Progress percent={70} status="active" />
+							<Progress percent={mockSystemStatus.memory} status="active" />
 						</div>
 						<div style={{ marginBottom: 16 }}>
 							<div style={{ marginBottom: 8 }}>磁盘使用率</div>
-							<Progress percent={45} status="active" />
+							<Progress percent={mockSystemStatus.disk} status="active" />
 						</div>
 					</Card>
 				</Col>
@@ -74,23 +76,9 @@ const Dashboard: React.FC = () => {
 				<Col span={12}>
 					<Card title="最近活动" bordered={false}>
 						<Timeline
-							items={[
-								{
-									children: "用户 admin 登录系统",
-								},
-								{
-									children: '新增用户 "张三"',
-								},
-								{
-									children: '修改角色 "管理员" 权限',
-								},
-								{
-									children: '删除菜单 "测试菜单"',
-								},
-								{
-									children: "系统启动",
-								},
-							]}
+							items={mockActivities.map((item: ActivityRecord) => ({
+								children: item.content,
+							}))}
 						/>
 					</Card>
 				</Col>

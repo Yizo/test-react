@@ -10,28 +10,34 @@ function handleError(error: AxiosError | Error): string {
 		if (axios.isCancel(error)) {
 			// 请求取消
 			message = ErrorMessageEnum.REQUEST_CANCELLED;
-		} else if (error?.code === "ECONNABORTED") {
+		} else if ((error as any)?.code === "ECONNABORTED") {
 			// 请求超时
 			message = ErrorMessageEnum.REQUEST_TIMEOUT;
-		} else if (error.code === "NETWORK_ERROR") {
+		} else if ((error as any).code === "NETWORK_ERROR") {
 			// 网络错误
 			message = ErrorMessageEnum.NETWORK_ERROR;
-		} else if (error.response) {
+		} else if ((error as any).response) {
 			// 接口错误
-			const { status, data } = error.response;
+			const { status, data } = (error as any).response;
 			if ((data as any).message) {
 				message = `HTTP 错误: ${status} - ${(data as any).message}`;
 			} else {
 				message = `HTTP 错误: ${status} - ${data ? JSON.stringify(data) : ""}`;
 			}
-		} else if (error.request) {
+		} else if ((error as any).request) {
 			message = ErrorMessageEnum.NETWORK_DISCONNECT;
 		} else {
-			message = ErrorMessageEnum.REQUEST_ERROR.replace("{message}", error.message);
+			message = ErrorMessageEnum.REQUEST_ERROR.replace(
+				"{message}",
+				(error as any).message || ""
+			);
 		}
 	} else {
 		// 非 axios 错误，可能是代码运行时错误
-		message = ErrorMessageEnum.UNKNOWN_ERROR.replace("{message}", error?.message || "");
+		message = ErrorMessageEnum.UNKNOWN_ERROR.replace(
+			"{message}",
+			(error as any)?.message || ""
+		);
 	}
 	return message;
 }
