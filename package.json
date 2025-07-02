@@ -4,20 +4,26 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"dev": "vite",
+		"dev": "vite --host",
 		"build": "tsc -b && vite build",
 		"lint": "eslint .",
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"@ant-design/v5-patch-for-react-19": "^1.0.3",
+		"antd": "^5.26.3",
 		"axios": "^1.10.0",
+		"dayjs": "^1.11.13",
+		"js-cookie": "^3.0.5",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
-		"react-router-dom": "^7.6.2"
+		"react-router-dom": "^7.6.2",
+		"zustand": "^5.0.6"
 	},
 	"devDependencies": {
+		"@ant-design/icons": "^6.0.0",
 		"@eslint/js": "^9.25.0",
-		"@tanstack/router-plugin": "^1.121.33",
+		"@types/js-cookie": "^3.0.6",
 		"@types/node": "^24.0.7",
 		"@types/react": "^19.1.2",
 		"@types/react-dom": "^19.1.2",

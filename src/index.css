@@ -1,0 +1,93 @@
+/* 全局样式重置 */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+	height: 100vh;
+	height: 100dvh;
+	font-family:
+		-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB",
+		"Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #c1c1c1;
+	border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #a8a8a8;
+}
+
+/* 布局相关样式 */
+.ant-layout-sider {
+	box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
+}
+
+/* 表格样式优化 */
+.ant-table-thead > tr > th {
+	background: #fafafa;
+	font-weight: 600;
+}
+
+/* 面包屑样式 */
+.ant-breadcrumb a {
+	color: #1890ff;
+	text-decoration: none;
+}
+
+.ant-breadcrumb a:hover {
+	color: #40a9ff;
+}
+
+/* 卡片样式 */
+.ant-card {
+	border-radius: 6px;
+	box-shadow:
+		0 1px 2px rgba(0, 0, 0, 0.03),
+		0 1px 6px -1px rgba(0, 0, 0, 0.02),
+		0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+/* 按钮样式 */
+.ant-btn {
+	border-radius: 4px;
+}
+
+/* 输入框样式 */
+.ant-input,
+.ant-input-password {
+	border-radius: 4px;
+}
+
+/* 表单项样式 */
+.ant-form-item-label > label {
+	font-weight: 500;
+}
+
+/* 统计数字样式 */
+.ant-statistic-content {
+	font-size: 20px !important;
+	font-weight: 600;
+}
+
+.ant-statistic-title {
+	font-size: 14px;
+	color: rgba(0, 0, 0, 0.65);
+}
