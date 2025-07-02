@@ -9,7 +9,7 @@ import {
 	CloseCircleOutlined,
 } from "@ant-design/icons";
 import { mockDashboardData } from "./mock";
-import type { DashboardData, AlertItem, AppStatusItem } from "./mock";
+import type { DashboardData } from "./mock";
 import {
 	ALERT_LEVEL_MAP,
 	ALERT_STATUS_MAP,

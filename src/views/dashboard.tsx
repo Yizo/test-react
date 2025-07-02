@@ -1,8 +1,8 @@
 import React from "react";
 import { Card, Row, Col, Statistic, Progress, Timeline } from "antd";
 import { UserOutlined, TeamOutlined, MenuOutlined, SecurityScanOutlined } from "@ant-design/icons";
-import { mockDashboardStats, mockSystemStatus, mockActivities } from "./mock";
-import type { ActivityRecord } from "./mock";
+import { mockDashboardStats, mockSystemStatus, mockActivities } from "./dashboard/mock";
+import type { ActivityRecord } from "./dashboard/mock";
 
 const Dashboard: React.FC = () => {
 	return (

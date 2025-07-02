@@ -19,7 +19,7 @@ const { TabPane } = Tabs;
 const AlertsManagement: React.FC = () => {
 	const navigate = useNavigate();
 	const [loading] = useState(false);
-	const [alerts, setAlerts] = useState<AlertItem[]>(mockAlerts);
+	const [alerts] = useState<AlertItem[]>(mockAlerts);
 	const [filteredAlerts, setFilteredAlerts] = useState<AlertItem[]>(mockAlerts);
 	const [searchText, setSearchText] = useState("");
 	const [levelFilter, setLevelFilter] = useState<string>("");

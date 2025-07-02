@@ -26,7 +26,7 @@ const { Option } = Select;
 const { RangePicker } = DatePicker;
 
 const LogsPage: React.FC = () => {
-	const [logs, setLogs] = useState<OperationLog[]>(mockLogs);
+	const [logs] = useState<OperationLog[]>(mockLogs);
 	const [loading] = useState(false);
 	const [searchText, setSearchText] = useState("");
 	const [filterType, setFilterType] = useState<string>("");
@@ -129,9 +129,6 @@ const LogsPage: React.FC = () => {
 		const matchResult = !filterResult || log.result === filterResult;
 		return matchSearch && matchType && matchResult;
 	});
-
-	// 获取操作类型选项
-	const operationTypes = Array.from(new Set(logs.map((log) => log.operationType)));
 
 	return (
 		<Card>

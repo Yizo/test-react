@@ -20,7 +20,7 @@ import {
 	SettingOutlined,
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
-import type AppItem from "./mock";
+import type { AppItem } from "./mock";
 import { mockApps } from "./mock";
 
 const { Search } = Input;

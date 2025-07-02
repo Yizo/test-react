@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Table, Button, Input, Select, Space, Tag, Modal, Card, message } from "antd";
+import { Table, Button, Input, Select, Space, Tag, Card, message } from "antd";
 import { PlusOutlined, EditOutlined, HistoryOutlined, EyeOutlined } from "@ant-design/icons";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import type { ConfigItem } from "./mock";
@@ -15,7 +15,7 @@ const ConfigsPage: React.FC = () => {
 	const [searchParams] = useSearchParams();
 	const appKeyFromQuery = searchParams.get("appKey");
 
-	const [configs, setConfigs] = useState<ConfigItem[]>(mockConfigs);
+	const [configs] = useState<ConfigItem[]>(mockConfigs);
 	const [loading] = useState(false);
 	const [searchText, setSearchText] = useState("");
 	const [filterApp, setFilterApp] = useState<string>(appKeyFromQuery || "");
@@ -92,28 +92,6 @@ const ConfigsPage: React.FC = () => {
 
 	const handleCreateConfig = () => {
 		navigate("/configs/new");
-	};
-
-	const handleRollback = (config: ConfigItem) => {
-		Modal.confirm({
-			title: "回滚配置",
-			content: `确定要回滚到版本 ${config.version} 吗？`,
-			onOk: () => {
-				// 模拟回滚操作
-				setConfigs(
-					configs.map((item) => {
-						if (item.appKey === config.appKey) {
-							return {
-								...item,
-								status: item.id === config.id ? "active" : "inactive",
-							};
-						}
-						return item;
-					})
-				);
-				message.success("回滚成功");
-			},
-		});
 	};
 
 	const handleBatchOperation = () => {

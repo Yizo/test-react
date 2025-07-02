@@ -19,10 +19,9 @@ import {
 	DeleteOutlined,
 	SafetyCertificateOutlined,
 } from "@ant-design/icons";
-import type { TreeDataNode } from "antd";
 import type { Role } from "./mock";
 import { mockRoles } from "./mock";
-import { ROLE_STATUS_MAP, ROLE_STATUS_OPTIONS, PERMISSION_TYPES } from "./const";
+import { ROLE_STATUS_MAP, ROLE_STATUS_OPTIONS } from "./const";
 
 const { Search } = Input;
 
